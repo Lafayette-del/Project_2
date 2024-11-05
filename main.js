@@ -3,6 +3,11 @@ const APIKEY = "Oislc2GvTi4OonMSd3HXjHuAFWwvMD0o"
 const APIURL = 'https://api.giphy.com/v1/gifs/search?api_key=Oislc2GvTi4OonMSd3HXjHuAFWwvMD0o&q=book&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips'
 
 async function fetchGIFs(query) {
+    let mystring = `this is a test ${query}`
+ 
+    const APIURL = `https://api.giphy.com/v1/gifs/search?api_key=Oislc2GvTi4OonMSd3HXjHuAFWwvMD0o&q=${query}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`
+    console.log(mystring)
+    console.log (APIURL)
     try {
         const response = await fetch (APIURL);
         if (!response.ok) throw new error("network response was not ok");
@@ -30,4 +35,5 @@ function Gifdisplay(gifs) {
     });
 } 
 
-fetchGIFs("book")
+console.log (document.getElementById("search-input").value)
+fetchGIFs (document.getElementById("search-input").value)
